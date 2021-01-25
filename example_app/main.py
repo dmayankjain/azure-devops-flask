@@ -1,14 +1,9 @@
 from flask import Flask
+application = Flask(__name__)
 
-app = Flask(__name__)
+@application.route('/')
+def homepage():
+    return "Hello world!"
 
-
-@app.route('/')
-def index():
-    return 'Hello World'
-
-
-if __name__ == '__name__':
-    app.run()
-
-app.run(port=5000)
+if __name__ == '__main__':
+    application.run(debug=True, use_reloader=True)
